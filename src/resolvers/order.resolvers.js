@@ -15,3 +15,7 @@ const createOrderResolver = async (body)=>{
 
     return order;
 }
+
+module.exports = {
+    createOrderResolver
+}

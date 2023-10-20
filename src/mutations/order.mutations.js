@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const { GraphQLFloat, GraphQLInt } = graphql;
 const { OrderType } = require("../types");
-const { Order } = require('../models/index');
+const { createOrderResolver } = require('../resolvers/order.resolvers');
 
 const orderMutations = {
     createOrder : {
@@ -11,8 +11,12 @@ const orderMutations = {
           total_amount : { type : GraphQLFloat }  
         },
         async resolve(parent, args){
-            let order = await Order.create({...args});
-            return order;
+            try{
+                return await createOrderResolver(args);
+            }catch(error){
+                console.error(error)
+                throw new GraphQLError(error);
+            }
         }
     }
 }
