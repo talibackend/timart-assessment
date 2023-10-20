@@ -14,7 +14,7 @@ const userMutations = {
         },
         async resolve(parent, args){
             let user = await User.create({...args});
-            return user.dataValues;
+            return user;
         }
     }
 }
