@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { GraphQLFloat, GraphQLInt } = graphql;
+const { GraphQLFloat, GraphQLInt, GraphQLError } = graphql;
 const { OrderType } = require("../types");
 const { createOrderResolver } = require('../resolvers/order.resolvers');
 
