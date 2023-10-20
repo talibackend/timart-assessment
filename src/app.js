@@ -4,9 +4,10 @@ const { database } = require('./config/database');
 require('./models/index');
 const { graphqlHTTP } = require('express-graphql');
 const allQueries = require('./queries/index');
+const allMutations = require('./mutations/index');
 const { GraphQLSchema } = require('graphql');
 
-const schema = new GraphQLSchema({ query : allQueries })
+const schema = new GraphQLSchema({ query : allQueries, mutation : allMutations });
 
 database.sync({ alter : true }).then(()=>{
     app.listen(process.env.PORT, ()=>{ console.log(`Server running on :${process.env.PORT}`) });
