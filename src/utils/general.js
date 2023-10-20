@@ -8,3 +8,7 @@ const validator = (schema, body)=>{
     return value;
 
 }
+
+module.exports = {
+    validator
+}

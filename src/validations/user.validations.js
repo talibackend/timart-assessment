@@ -11,3 +11,7 @@ const createUserValidation = (body)=>{
 
     return validator(schema, body);
 }
+
+module.exports = {
+    createUserValidation
+}
