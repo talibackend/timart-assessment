@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const { GraphQLFloat, GraphQLInt } = graphql;
 const { OrderType } = require("../types");
-const { Order } = require('../models');
+const { Order } = require('../models/index');
 
 const orderMutations = {
     createOrder : {

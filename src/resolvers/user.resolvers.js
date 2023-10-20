@@ -20,3 +20,7 @@ const createUserResolver = async (body) =>{
     const user = await User.create({...payload});
     return user;
 }
+
+module.exports = {
+    createUserResolver
+}

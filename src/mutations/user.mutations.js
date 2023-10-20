@@ -1,7 +1,7 @@
 const graphql = require('graphql');
 const { GraphQLString } = graphql;
 const { UserType } = require("../types");
-const { User } = require('../models');
+const { createUserResolver } = require('../resolvers/user.resolvers');
 
 const userMutations = {
     createUser : {
@@ -13,8 +13,7 @@ const userMutations = {
             username : { type : GraphQLString }
         },
         async resolve(parent, args){
-            let user = await User.create({...args});
-            return user;
+            return await createUserResolver(args);
         }
     }
 }
