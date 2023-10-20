@@ -10,4 +10,4 @@
 4. Run `npm install`.
 5. Run `npm start:prod`
 6. You should get a message in the console indicating that the application has started.
-7. Access `http://localhost/{PORT IN .env}/graphql`, a graphiql web interface will be loaded and you can use it to interact with the application.
+7. Access `http://localhost/{PORT IN .env}/graphql`, a graphiql web interface will be loaded and you can use it to interact with the application, you can also choose to use the postman collection instead.
