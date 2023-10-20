@@ -5,7 +5,7 @@ const OrderType = new GraphQLObjectType({
     name : "Order",
     fields : ()=>({
         id : { type : GraphQLInt },
-        total_price : { type : GraphQLFloat },
+        total_amount : { type : GraphQLFloat },
         createdAt : { type : GraphQLString },
         updatedAt : { type : GraphQLString },
         UserId : { type : GraphQLInt }
