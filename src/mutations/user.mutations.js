@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { GraphQLString } = graphql;
+const { GraphQLString, GraphQLError } = graphql;
 const { UserType } = require("../types");
 const { createUserResolver } = require('../resolvers/user.resolvers');
 
@@ -13,7 +13,12 @@ const userMutations = {
             username : { type : GraphQLString }
         },
         async resolve(parent, args){
-            return await createUserResolver(args);
+            try{
+                return await createUserResolver(args);
+            }catch(error){
+                console.error(error)
+                throw new GraphQLError(error);
+            }
         }
     }
 }
