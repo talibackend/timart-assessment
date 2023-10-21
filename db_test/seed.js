@@ -11,22 +11,24 @@ const connection = mysql.createConnection({
     port : Number(process.env.DB_PORT)
 });
 
-const formattedUsers = Users.map((user)=>{ return [user.first_name, user.last_name, user.email, user.username, user.createdAt, user.updatedAt] });
-const formattedOrders = Orders.map((order)=>{ return [order.total_amount, order.UserId, order.createdAt, order.updatedAt] });
+const formattedUsers = Users.map((user)=>{ return [user.id, user.first_name, user.last_name, user.email, user.username, "2023-10-20 20:50:33", "2023-10-20 20:50:33"] });
+const formattedOrders = Orders.map((order)=>{ return [order.total_amount, order.UserId, "2023-10-20 20:50:33", "2023-10-20 20:50:33"] });
 
-const userSql = "INSERT INTO Users(first_name, last_name, email, password, createdAt, updatedAt) VALUES ?";
-const orderSql = "INSERT INTO Orders(total_amount, UserId, createdAt, updatedAt)";
+const userSql = 'INSERT INTO Users(id, first_name, last_name, email, username, createdAt, updatedAt) VALUES ?';
+const orderSql = 'INSERT INTO Orders(total_amount, UserId, createdAt, updatedAt) VALUES ?';
 
-connection.query(userSql, formattedUsers, (err)=>{
+connection.query(userSql, [formattedUsers], (err, result)=>{
     if(err){
         console.error(err);
-        throw "Failed to insert users...";
+        throw new Error("Failed to insert users...");
     }
-    connection.query(orderSql, formattedOrders, (err)=>{
+    console.log(`${result.affectedRows} users inserted.`)
+    connection.query(orderSql, [formattedOrders], (err, result)=>{
         if(err){
             console.error(err);
-            throw "Failed to insert orders...";
+            throw new Error("Failed to insert orders...");
         }
+        console.log(`${result.affectedRows} orders inserted.`)
         console.log("Data insertion completed...");
         connection.end();
     })
