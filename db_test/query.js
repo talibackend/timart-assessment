@@ -18,7 +18,7 @@ connection.query(`SELECT
                     COUNT(o.id) AS order_count
                     FROM Users AS u
                     JOIN Orders AS o ON u.id = o.UserId
-                    GROUP BY u.id, u.username, u.first_name, u.last_name, u.email
+                    GROUP BY u.id, u.username
                     ORDER BY order_count DESC
                     LIMIT 10`, (err, result) => {
     if (err) {
