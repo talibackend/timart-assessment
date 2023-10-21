@@ -3,6 +3,9 @@
 2. A running mysql server instance
 3. Any web browser of your choice
 
+## Graphql Documentation
+The GraphQL documentation is located in the `schema.md` file.
+
 ## Steps
 1. Clone the repo
 2. Copy the content of `.env.example` and use it to create a new file called `.env` in the base directory of the cloned repo.
