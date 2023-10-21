@@ -3,8 +3,8 @@
 2. A running mysql server instance
 3. Any web browser of your choice
 
-## Graphql Documentation
-The GraphQL documentation is located in the `schema.md` file.
+## Documentation
+The documentation is located in the `schema.md` file.
 
 ## Steps
 1. Clone the repo
